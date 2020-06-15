@@ -1,0 +1,26 @@
+{% load mptt_tags %}
+<ul>
+    {% recursetree files %}
+        <li>
+            {{ node.name }}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                    {{ parent }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+<br>
+<br>
+<a href="{% url 'addfile'%}">Add A File</a>
+<br>
+
+<a href="{% url 'login'%}">Login</a>
+<br>
+
+<a href="{% url 'logout'%}">Log Out</a>
+
+<br>
+<a href="{% url 'register'%}">Register</a>
